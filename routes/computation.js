@@ -1,8 +1,5 @@
 var express=require('express');
-
 var router = express.Router();
-
-
 
 router.get('/',function(req,res,next){
 
@@ -23,10 +20,8 @@ router.get('/',function(req,res,next){
    var truncfunction=Math.trunc(number4);
 
    res.render('computation',
-
    {
-
-    title:'Amrutha varshini computation',
+     title:'Amrutha varshini computation',
 
     number1:number1,
 
@@ -43,18 +38,8 @@ router.get('/',function(req,res,next){
     tanh:tanhfunction,
 
     trunc:truncfunction,
-
-
-
-
    });
-
-   
-
+  
 });
-
-
-
-
 
 module.exports=router;
