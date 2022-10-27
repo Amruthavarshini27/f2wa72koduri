@@ -1,32 +1,60 @@
-var express = require('express');
+var express=require('express');
+
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  
-  
-  if (Object.keys(req.query).length === 0) {
-    var x=Math.random();
-    res.render('computation', { value: `Math.pow() applied to ${x} is ${Math.pow(x)}`,
-    value1: ` Math.sign()  applied to ${x} is ${ Math.sign(x)}` ,
-    value2: ` Math.tanh()  applied to ${x} is ${ Math.tanh(x)}` ,
-    value2: ` Math.trunc()  applied to ${x} is ${ Math.trunc(x)}`
+
+
+router.get('/',function(req,res,next){
+
+   var number1=Math.random()*20
+
+   var number2=Math.random()
+
+   var number3=Math.floor(Math.random()*20)
+
+   var number4=Math.random()*-10
+
+   var powfunction=Math.pow(number1);
+
+   var signfunction=Math.sign(number2);
+
+   var tanhfunction=Math.tanh(number3);
+
+   var truncfunction=Math.trunc(number4);
+
+   res.render('computation',
+
+   {
+
+    title:'Amrutha varshini computation',
+
+    number1:number1,
+
+    number2:number2,
+
+    number3:number3,
+
+    number4:number4,
+
+    pow:powfunction,
+
+    sign:signfunction,
+
+    tanh:tanhfunction,
+
+    trunc:truncfunction,
+
+
+
+
+   });
+
+   
+
 });
-  }
-  else{
-
-    for (let a in req.query) {
-
-      console.log(a)
-
-      res.render('computation', { value: `Math.pow() applied to ${req.query[a]} is ${Math.pow(req.query[a])}`,
-      value1: `math.sign() applied to ${req.query[a]} is ${Math.sign(req.query[a])}` ,
-      value2: `math.tanh() applied to ${req.query[a]} is ${Math.tanh(req.query[a])}`, 
-      value3: `math.trunc() applied to ${req.query[a]} is ${Math.trunc(req.query[a])}`
-    })
-
-    }
-  }
 
 
-});
+
+
+
+module.exports=router;
